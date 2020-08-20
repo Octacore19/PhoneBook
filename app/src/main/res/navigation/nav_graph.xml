@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/phone_book_fragment">
+
+    <fragment
+        android:id="@+id/phone_book_fragment"
+        android:name="com.octacore.phonebook.PhoneBookFragment"
+        android:label="@string/phone_book_fragment_label"
+        tools:layout="@layout/fragment_phone_book">
+        <action
+            android:id="@+id/action_PhoneBookFragment_to_PhoneBookDetailFragment"
+            app:destination="@id/phone_book_detail_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/phone_book_detail_fragment"
+        android:name="com.octacore.phonebook.PhoneBookDetailFragment"
+        android:label="@string/phone_book_detail_fragment_label"
+        tools:layout="@layout/fragment_phone_book_detail">
+        <argument
+            android:name="position"
+            app:argType="integer" />
+        <argument
+            android:name="book"
+            app:argType="com.octacore.phonebook.PhoneBook"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>
